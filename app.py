@@ -9,11 +9,9 @@ classes = {0:'Account Services', 1:'Others', 2:'Mortgage/Loan', 3:'Credit card o
 class_labels = list(classes.values())
 st.title("Classification of IT service support Tickets")
 st.markdown('**Objective** : Given text details of support ticket, model predicts the Catergories.')
-st.markdown('The model can predict if it belongs to the following three Categories : **Account Services, Others, Mortgage, Credit card, Theft** ')
+st.markdown('The model can predict if it belongs to the following Categories : **Account Services, Others, Mortgage, Credit card, Theft** ')
 
 def predict_class(ticket_text):
-    
-    
     data = [ticket_text]
     result, probs = predict(data)
     st.write("The predicted class is ",result)
@@ -28,4 +26,4 @@ st.markdown("**Please enter the details of ticket**")
 ticket_text = st.text_input('Text', '')
 
 if st.button("Predict"):
-    predict_class()
+    predict_class(ticket_text)
