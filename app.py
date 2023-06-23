@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-# import seaborn as sns
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 from model_methods import predict
@@ -16,9 +16,8 @@ def predict_class():
     result, probs = predict(data)
     st.write("The predicted class is ",result)
     probs = [np.round(x,6) for x in probs]
-    ax = plt.barh(class_labels, probs)
-#     ax.set_yticklabels(class_labels,rotation=0)
-    plt.title("Probabilities of the Ticket belonging to each class")
+    ax = sns.barplot(probs ,class_labels, palette="winter", orient='h')
+    ax.set_yticklabels(class_labels,rotation=0)    plt.title("Probabilities of the Ticket belonging to each class")
     for index, value in enumerate(probs):
         plt.text(value, index,str(value))
     st.pyplot()
