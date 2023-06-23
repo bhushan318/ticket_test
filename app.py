@@ -10,7 +10,7 @@ class_labels = list(classes.values())
 st.title("Classification of IT service support Tickets")
 st.markdown('**Objective** : Given text details of support ticket, model predicts the Catergories.')
 st.markdown('The model can predict if it belongs to the following Categories : **Account Services, Others, Mortgage, Credit card, Theft** ')
-
+st.set_option('deprecation.showPyplotGlobalUse', False)
 def predict_class(ticket_text):
     data = ticket_text
     result, probs = predict(data)
