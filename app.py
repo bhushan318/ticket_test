@@ -16,7 +16,7 @@ def predict_class(ticket_text):
     result, probs = predict(data)
     st.write("The predicted class is ",result)
     probs = [np.round(x,6) for x in probs]
-    ax = sns.barplot(probs ,class_labels, palette="winter", orient='h')
+    ax = sns.barplot(x = probs , y = class_labels, palette="winter", orient='h')
     ax.set_yticklabels(class_labels,rotation=0)
     plt.title("Probabilities of the Ticket belonging to each class")
     for index, value in enumerate(probs):
