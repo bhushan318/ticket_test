@@ -12,7 +12,7 @@ st.markdown('**Objective** : Given text details of support ticket, model predict
 st.markdown('The model can predict if it belongs to the following Categories : **Account Services, Others, Mortgage, Credit card, Theft** ')
 
 def predict_class(ticket_text):
-    data = [ticket_text]
+    data = ticket_text
     result, probs = predict(data)
     st.write("The predicted class is ",result)
     probs = [np.round(x,6) for x in probs]
